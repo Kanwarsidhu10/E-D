@@ -41,7 +41,7 @@ void decryptfunc()
 	char temp;
 	int i,key;
 	temp=temp+key;
-	cout<<"Enter a message to decrypt:  "<<endl;
+	cout<<"Enter a message to decrypt: "<<endl;
 	cin>>text;
 	cout<<"Enter the key: "<<endl;
 	cin>>key;
@@ -72,17 +72,23 @@ void decryptfunc()
 int main ()
 {
 	int choice;
-	cout<<"Choose any one ! "<<endl;
-	cout<<"1. Encryption \n 2.Decryption "<<endl;
-	cin>>choice;
-	switch(choice)
+	while(1)
 	{
-		case 1: encryptyfunc();
-			break;
-		case 2: decryptfunc();
-			break;
-		default:cout<<"Please enter valid option";
-			break;
+		cout<<"=================="<<endl;
+		cout<<"Choose any one ! "<<endl;
+		cout<<"1.Encryption \n2.Decryption\n3.EXIT\n==============================="<<endl;
+		cin>>choice;
+		switch(choice)
+		{
+			case 1: encryptyfunc();
+				break;
+			case 2: decryptfunc();
+				break;
+			case 3:exit(0);
+				break;
+			default:cout<<"Please enter valid option";
+				break;
+		}
 	}
 	return 0;
 }
