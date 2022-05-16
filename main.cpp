@@ -1,76 +1,9 @@
-#include<iostream>
-#include<string.h>
+#include"header.h"
 using namespace std;
 
-void encryptyfunc()
-{
-	char text[100];
-	char temp;
-	int i,key;
-	cout<<"Enter a message to encrypt:  "<<endl;
-	cin>>text;
-	cout<<"Enter the key: "<<endl;
-	cin>>key;
-	for(i=0;text[i] != '\0';i++)
-	{
-		temp = text[i];
-		if(temp >= 'a' && temp <= 'z')
-		{
-			temp = temp + key;
-			if(temp > 'z')
-			{
-				temp = temp - 'z' + 'a' - 1;
-			}
-			text[i] = temp;
-		}
-		else if(temp >= 'A' && temp <= 'Z')
-		{
-			temp=temp + key;
-			if(temp > 'Z' )
-			{
-				temp = temp - 'Z' + 'A' -1;
-			}
-			text[i] = temp;
-		}
-	}
-	cout<<"Encrypted message: "<<text<<endl;
-}
-void decryptfunc()
-{
-	char text[100];
-	char temp;
-	int i,key;
-	temp=temp+key;
-	cout<<"Enter a message to decrypt: "<<endl;
-	cin>>text;
-	cout<<"Enter the key: "<<endl;
-	cin>>key;
-	for(i=0;text[i] != '\0';i++)
-	{
-		temp = text[i];
-		if(temp >= 'a' && temp <= 'z')
-		{
-			temp = temp - key;
-			if(temp < 'a')
-			{
-				temp = temp - 'z' - 'a' + 1;
-			}
-			text[i] = temp;
-		}
-		else if(temp >= 'A' && temp <= 'Z')
-		{
-			temp=temp - key;
-			if(temp < 'A' )
-			{
-				temp = temp - 'Z' - 'A' + 1;
-			}
-			text[i] = temp;
-		}
-	}
-	cout<<"Decrypted message: "<<text<<endl;
-}
 int main ()
 {
+	ED obj;
 	int choice;
 	while(1)
 	{
@@ -80,9 +13,9 @@ int main ()
 		cin>>choice;
 		switch(choice)
 		{
-			case 1: encryptyfunc();
+			case 1: obj.encryptyfunc();
 				break;
-			case 2: decryptfunc();
+			case 2: obj.decryptfunc();
 				break;
 			case 3:exit(0);
 				break;
